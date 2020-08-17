@@ -1,0 +1,139 @@
+{% load static%}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <title>My Website</title>
+
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="/">Sankalpa</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="aboutme/aboutme">About Me</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Contact Me
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <div class="container">
+                      <a class="dropdown-item mx-5 " href="https://mail.google.com/mail/u/0/#inbox"><svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-envelope-fill mx-4" fill="red" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z"/>
+</svg><br> My Email</a>
+
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item mx-5"><svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-phone mx-4" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M11 1H5a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM5 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H5z"/>
+  <path fill-rule="evenodd" d="M8 14a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+</svg><br>9816129058</a>
+          <div class="dropdown-divider"></div>
+
+<a class="dropdown-item mx-5" href="contact/contact"> <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-mailbox mx-4" fill="red" xmlns="http://www.w3.org/2000/svg">
+  <path fill-rule="evenodd" d="M4 4a3 3 0 0 0-3 3v6h6V7a3 3 0 0 0-3-3zm0-1h8a4 4 0 0 1 4 4v6a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1V7a4 4 0 0 1 4-4zm2.646 1A3.99 3.99 0 0 1 8 7v6h7V7a3 3 0 0 0-3-3H6.646z"/>
+  <path fill-rule="evenodd" d="M11.793 8.5H9v-1h5a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.354-.146l-.853-.854z"/>
+  <path d="M5 7c0 .552-.448 0-1 0s-1 .552-1 0a1 1 0 0 1 2 0z"/></svg> <br> Send Message</a>
+            </div>
+        </div>
+      </li>
+    </ul>
+      <div class="md-x-2">
+        {% if user.is_authenticated %}
+          <a href="logout/logout" class="btn btn-danger btn-lg active" role="button" aria-pressed="true">Logout</a>
+        {% else %}
+          <a href="signup/signup" class="btn btn-success btn-lg active" role="button" aria-pressed="true">Signup</a>
+          <a href="login/login" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Login</a>
+        {% endif %}
+      </div>
+  </div>
+</nav>
+
+
+    {% if messages %}
+    {% for message in messages %}
+    <div class="alert alert-success-{{ message.tags }} alert-dismissible fade show my-0" role="alert">
+      <strong>{{ message }}</strong>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+    {% endfor %}
+    {% endif %}
+    <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static 'mysite/images/damauli.jpg' %}" height="400" class="d-block w-100" alt="">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'mysite/images/damauli.jpg' %}" height = 400 class="d-block w-100" alt="">
+    </div>
+    <div class="carousel-item">
+      <img src="{% static 'mysite/images/damauli.jpg' %}" height = 400 class="d-block w-100" alt="">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+    <div class="container my-4">
+      <div class="card-deck">
+  <div class="card">
+    <img src="{% static 'mysite/images/sankalpa3.jpg' %}"height="400" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Introduction</h5>
+      <p class="card-text">I'm a computer Engineering student.</p>
+      <p class="card-text"><small class="text-muted"></small></p>
+    </div>
+  </div>
+  <div class="card">
+    <img src="{% static 'mysite/images/damauli2.jpg' %}"height="400" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">Address</h5>
+      <p class="card-text">My Hometown is Damauli,Tanahun</p>
+      <p class="card-text"><small class="text-muted"></small></p>
+    </div>
+  </div>
+  <div class="card">
+    <img src="{% static 'mysite/images/futsal.jpg' %}" height="400" class="card-img-top" alt="...">
+    <div cla</p>
+      <p class="cass="card-body">
+      <h5 class="card-title">Interests</h5>
+      <p class="card-text">Playing football,swimming,Travelling</small></p>
+    </div>
+  </div>
+</div>
+    </div>
+    <div class="container" align="center">
+      <footer class="container">
+    <p>© 2020 Sankalpa's Website, Inc. <a href="https://www.instagram.com/sankalpa_neupane10/?hl=en">Follow me on Instagram</a>
+        <p class="float-center"><a href="#">Go to Top</a></p>
+  </footer>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  </body>
+</html>
